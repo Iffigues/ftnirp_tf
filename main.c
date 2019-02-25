@@ -2,6 +2,6 @@
 
 int main()
 {
-	ft_printf("|%5.4s|\n", "");
-	printf("|%5.4s|", "");
+	int a = ft_printf("123\n");
+	printf("%d\n",a);
 }

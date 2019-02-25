@@ -6,7 +6,7 @@
 /*   By: bordenoy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 20:31:00 by bordenoy          #+#    #+#             */
-/*   Updated: 2019/02/13 18:04:40 by bordenoy         ###   ########.fr       */
+/*   Updated: 2019/02/18 20:23:10 by bordenoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_fl_base(long long a, char *b, t_gob opt)
 	len = ft_strlen(b);
 	if (a / len)
 		ft_fl_base(a / len, b, opt);
-	ft_add(opt.b, b[ABS(a) % len]);
+	ft_add(opt, b[ABS(a) % len]);
 }
 
 int		float_count(long long a)
@@ -57,7 +57,7 @@ void	float_optafter(long long a, t_gob opt)
 	i += float_count(a);
 	while ((int)opt.opt.largeur > i && (opt.opt.opt & 4))
 	{
-		ft_add(opt.b, ft_floatzero(opt));
+		ft_add(opt, ft_floatzero(opt));
 		opt.opt.largeur--;
 	}
 }

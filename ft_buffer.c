@@ -6,7 +6,7 @@
 /*   By: bordenoy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 19:10:49 by bordenoy          #+#    #+#             */
-/*   Updated: 2019/02/13 14:51:20 by bordenoy         ###   ########.fr       */
+/*   Updated: 2019/02/25 16:55:28 by bordenoy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,28 @@ int		ft_getsize(char *b, int c)
 	return (b[sizeof(int) * c]);
 }
 
-int		end(char *b)
+int		end(t_gob opt)
 {
 	int a;
 
-	if (*b && b[sizeof(int)] > 0)
-		aff(&b[sizeof(int) * 2], *b);
-	a = b[sizeof(int)];
-	ft_bzero(b, BUFF_SIZE + sizeof(int) * 2);
+	a = 0;
+	if (opt.b)
+		*(int *)&opt.b[sizeof(int)] += aff(&opt.b[sizeof(int) * 2], *opt.b);
+	a = *(int *)&opt.b[sizeof(int)];
+	ft_bzero(opt.b, BUFF_SIZE + sizeof(int) * 2);
 	return (a);
 }
 
-void	ft_add(char *b, const char c)
+void	ft_add(t_gob opt, const char c)
 {
-	b[sizeof(int) * 2 + *b] = c;
-	*b += 1;
-	b[sizeof(int)] += 1;
-	b[sizeof(int) * 2 + *b] = '\0';
-	if ((int)*b == BUFF_SIZE)
+	opt.b[sizeof(int) * 2 + *opt.b] = c;
+	*(int *)opt.b += 1;
+	opt.b[sizeof(int) * 2 + *opt.b] = '\0';
+	if (*opt.b == BUFF_SIZE)
 	{
-		aff(&b[sizeof(int) * 2], *b);
-		ft_bzero(&b[sizeof(int) * 2], BUFF_SIZE);
-		*b = 0;
+		*(int *)&opt.b[sizeof(int)] += aff(&opt.b[sizeof(int)], *opt.b);
+		*(int*)opt.b = 0;
 	}
 }
+//char b[sizeof(int)];
+//*(int *)b = 10;

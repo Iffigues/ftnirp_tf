@@ -6,7 +6,7 @@
 #    By: bordenoy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 12:37:32 by bordenoy          #+#    #+#              #
-#    Updated: 2019/02/13 20:56:28 by bordenoy         ###   ########.fr        #
+#    Updated: 2019/02/21 15:47:19 by bordenoy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,14 @@ SRC=	ft_bzero.c					\
  		ft_putnbr.c					\
 		ft_atoi.c					\
 		ft_buffer.c					\
+		ft_rest.c					\
 		ft_float.c					\
 		ft_pour.c					\
+		ft_rot.c					\
 		ft_floater.c				\
 		ft_printf.c					\
 		ft_putchar.c				\
+		ft_nan.c					\
 		ft_ret.c					\
 		ft_putnbr_base.c			\
    		outil.c						\
